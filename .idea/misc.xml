@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/ShoppingListTask/app/src/main/res/drawable-v24/bg_gray_outline_field.xml" value="0.161" />
         <entry key="..\:/ShoppingListTask/app/src/main/res/drawable-v24/bg_outline_button.xml" value="0.1035" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable-v24/bg_select_filter_field.xml" value="0.1" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable/bg_filter_selection_state.xml" value="0.1" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable/bg_gray_outline_filter_field.xml" value="0.1" />
         <entry key="..\:/ShoppingListTask/app/src/main/res/drawable/bg_white_rounded.xml" value="0.1" />
         <entry key="..\:/ShoppingListTask/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/ShoppingListTask/app/src/main/res/layout/dialog_fragment_shopping_item_creation.xml" value="0.22" />

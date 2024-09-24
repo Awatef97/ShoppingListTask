@@ -19,7 +19,12 @@
     <dialog
         android:id="@+id/shoppingItemCreationDialogFragment"
         android:name="com.example.shoppinglisttask.feature.shopping_item_creation.presentation.view.ShoppingItemCreationDialogFragment"
-        android:label="ShoppingItemCreationDialogFragment"/>
+        android:label="ShoppingItemCreationDialogFragment">
+        <argument
+            android:name="shoppingItemUIModel"
+            app:argType="com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel"
+            app:nullable="true"/>
+    </dialog>
 
     <dialog
         android:id="@+id/shoppingItemFilteringDialogFragment"

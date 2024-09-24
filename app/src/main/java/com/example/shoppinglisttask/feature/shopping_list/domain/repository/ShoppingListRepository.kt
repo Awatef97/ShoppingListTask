@@ -5,9 +5,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface ShoppingListRepository {
 
-    suspend fun deleteItem(shoppingListDto: ShoppingListDto)
+    suspend fun deleteItem(itemId: Int)
 
     fun getAllItems(): Flow<List<ShoppingListDto>>
 
+    suspend fun updateItem(itemId: Int, isBought: Boolean)
 
 }

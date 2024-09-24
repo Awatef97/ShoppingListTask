@@ -8,10 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.example.shoppinglisttask.R
 import com.example.shoppinglisttask.core.extension.showMessage
 import com.example.shoppinglisttask.databinding.DialogFragmentShoppingItemCreationBinding
 import com.example.shoppinglisttask.feature.core.domain.entity.ShoppingItemEntity
+import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
 import com.example.shoppinglisttask.feature.shopping_item_creation.presentation.ui_state.UIState
 import com.example.shoppinglisttask.feature.shopping_item_creation.presentation.viewmodel.ShoppingItemCreationViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,8 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
     private  var _binding: DialogFragmentShoppingItemCreationBinding? = null
     private val binding get() = _binding!!
     private val shoppingItemCreationViewModel: ShoppingItemCreationViewModel by viewModels()
+    private val args: ShoppingItemCreationDialogFragmentArgs by navArgs()
+    private var shoppingItem: ShoppingItemUIModel? = null
 
 
     override fun onCreateView(
@@ -44,8 +48,20 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         initListener()
         initObservation()
+    }
+    private fun initViews(){
+         shoppingItem = args.shoppingItemUIModel
+        if (shoppingItem != null){
+            with(binding){
+                btnAddItem.text = "Update Item"
+                etName.setText(shoppingItem?.name)
+                etDescription.setText(shoppingItem?.description)
+                etQuantity.setText(shoppingItem?.quantity.toString())
+            }
+        }
     }
 
     private fun initListener(){
@@ -61,15 +77,15 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
                 quantity.isBlank() || quantity.isEmpty() || quantity == "0" ){
                 "Please enter valid data".showMessage(context = context)
             }else{
-                shoppingItemCreationViewModel.addShoppingItem(
-                    ShoppingItemEntity(
-                        name = name,
-                        description = description,
-                        quantity = quantity.toInt(),
-                        date = System.currentTimeMillis(),
-                        isBought = false
-                    )
+                val shoppingItemEntity =  ShoppingItemEntity(
+                    id = shoppingItem?.id ?: 0,
+                    name = name,
+                    description = description,
+                    quantity = quantity.toInt(),
+                    date = System.currentTimeMillis(),
+                    isBought = false
                 )
+                shoppingItemCreationViewModel.addShoppingItem(shoppingItemEntity)
             }
 
         }

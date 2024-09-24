@@ -1,6 +1,7 @@
 package com.example.shoppinglisttask.feature.shopping_list.presentation.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,15 +12,23 @@ import javax.inject.Inject
 
 class ShoppingListAdapter @Inject constructor()
     : ListAdapter<ShoppingItemUIModel,ShoppingListAdapter.ShoppingListViewHolder>(DiffUtilCallback) {
+    var onItemDeleteClicked: ((Int) -> Unit) = { _ -> }
+    var onItemEditClicked: ((ShoppingItemUIModel) -> Unit) = { _ -> }
+    var onItemBoughtClicked: ((ShoppingItemUIModel) -> Unit) = { _ -> }
 
         inner class ShoppingListViewHolder(private val binding: ItemShoppingListBinding) :
             RecyclerView.ViewHolder(binding.root){
                 fun bind(shoppingItemUIModel: ShoppingItemUIModel){
                     with(binding){
+                        if (shoppingItemUIModel.isBought)
+                            btnBought.visibility = View.GONE
                         tvName.text = shoppingItemUIModel.name
                         tvDescription.text = shoppingItemUIModel.description
                         tvDate.text = shoppingItemUIModel.date.toString()
                         tvQuantity.text = shoppingItemUIModel.quantity.toString()
+                        btnDelete.setOnClickListener {  onItemDeleteClicked(shoppingItemUIModel.id)}
+                        btnEdit.setOnClickListener {  onItemEditClicked(shoppingItemUIModel)}
+                        btnBought.setOnClickListener { onItemBoughtClicked(shoppingItemUIModel) }
                     }
                 }
 
@@ -29,7 +38,7 @@ class ShoppingListAdapter @Inject constructor()
             oldItem: ShoppingItemUIModel,
             newItem: ShoppingItemUIModel
         ): Boolean {
-            return oldItem.date == newItem.date
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(

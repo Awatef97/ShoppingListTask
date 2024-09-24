@@ -4,4 +4,5 @@ import com.example.shoppinglisttask.core.data.source.local.database.dto.Shopping
 
 interface ShoppingItemCreationRepository {
     suspend fun insertOrUpdateItem(shoppingListDto: ShoppingListDto)
+
 }

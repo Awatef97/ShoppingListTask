@@ -6,4 +6,6 @@ import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIM
 sealed class UIState {
     data class ShowError(val message: String): UIState()
     data class GetShoppingList(val shoppingListUIModel: List<ShoppingItemUIModel>): UIState()
+    object DeleteItemSuccessfully: UIState()
+    object UpdatedItemSuccessfully: UIState()
 }

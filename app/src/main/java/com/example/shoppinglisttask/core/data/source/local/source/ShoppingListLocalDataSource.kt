@@ -8,11 +8,14 @@ class ShoppingListLocalDataSource @Inject constructor(
     private val shoppingListDatabase: ShoppingListDatabase
 ) {
     suspend fun insertOrUpdateItem(shoppingListDto: ShoppingListDto)=
-        shoppingListDatabase.shoppingDao().insertOrItem(shoppingListDto)
+        shoppingListDatabase.shoppingDao().insertOrUpdateItem(shoppingListDto)
 
-    suspend fun deleteItem(shoppingListDto: ShoppingListDto)=
-        shoppingListDatabase.shoppingDao().deleteItem(shoppingListDto)
+    suspend fun deleteItem(itemId: Int)=
+        shoppingListDatabase.shoppingDao().deleteItemById(itemId)
 
      fun getAllItems()=
         shoppingListDatabase.shoppingDao().getAllItems()
+
+    suspend fun updateItem(itemId: Int, isBought: Boolean)=
+        shoppingListDatabase.shoppingDao().updateBoughtStatus(itemId,isBought)
 }

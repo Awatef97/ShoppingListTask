@@ -14,9 +14,9 @@ class ShoppingListRepositoryImp @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher
 ): ShoppingListRepository {
 
-    override suspend fun deleteItem(shoppingListDto: ShoppingListDto) {
+    override suspend fun deleteItem(itemId: Int) {
         withContext(ioDispatcher){
-            shoppingListLocalDataSource.deleteItem(shoppingListDto)
+            shoppingListLocalDataSource.deleteItem(itemId)
         }
     }
 
@@ -24,6 +24,12 @@ class ShoppingListRepositoryImp @Inject constructor(
         return shoppingListLocalDataSource.getAllItems()
             .flowOn(ioDispatcher)
 
+    }
+
+    override suspend fun updateItem(itemId: Int, isBought: Boolean) {
+        withContext(ioDispatcher){
+            shoppingListLocalDataSource.updateItem(itemId,isBought)
+        }
     }
 
 }
