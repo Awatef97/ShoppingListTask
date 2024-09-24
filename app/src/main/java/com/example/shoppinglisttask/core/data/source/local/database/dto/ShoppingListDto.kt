@@ -10,5 +10,6 @@ data class ShoppingListDto(
     val name: String,
     val description: String,
     val date: Long,
-    val isBought: Boolean
+    val isBought: Boolean,
+    val quantity: Int
 )

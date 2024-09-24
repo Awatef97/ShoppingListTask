@@ -4,7 +4,6 @@ import com.example.shoppinglisttask.core.data.source.local.database.dto.Shopping
 import kotlinx.coroutines.flow.Flow
 
 interface ShoppingListRepository {
-    suspend fun insertOrUpdateItem(shoppingListDto: ShoppingListDto)
 
     suspend fun deleteItem(shoppingListDto: ShoppingListDto)
 

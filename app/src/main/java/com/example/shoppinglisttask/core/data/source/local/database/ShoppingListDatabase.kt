@@ -6,7 +6,7 @@ import com.example.shoppinglisttask.core.data.source.local.database.dao.Shopping
 import com.example.shoppinglisttask.core.data.source.local.database.dto.ShoppingListDto
 
 @Database(
-    entities = [ShoppingListDto::class], version = 1, exportSchema = false
+    entities = [ShoppingListDto::class], version = 2, exportSchema = false
 )
 abstract class ShoppingListDatabase : RoomDatabase(){
     abstract fun shoppingDao(): ShoppingListDao

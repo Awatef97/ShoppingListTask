@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.45")
         classpath(kotlin("gradle-plugin", version = "1.6.21"))
+        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3")
     }}
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)

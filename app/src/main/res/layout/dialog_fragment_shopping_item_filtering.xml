@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_filter"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Filter"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_bought"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_not_bought"
+        app:layout_constraintTop_toBottomOf="@+id/tv_filter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginBottom="50dp"
+        android:text="bought"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_gray_outline_field" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_not_bought"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_bought"
+        app:layout_constraintTop_toTopOf="@+id/btn_bought"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_bought"
+        android:text="not bought"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_gray_outline_field" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sort"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_bought"
+        android:text="Sort"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ascending"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_descending"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sort"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginBottom="50dp"
+        android:text="ascending"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_gray_outline_field" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_descending"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_ascending"
+        app:layout_constraintTop_toTopOf="@+id/btn_ascending"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ascending"
+        android:text="descending"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_gray_outline_field" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_reset"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ascending"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginBottom="50dp"
+        android:text="save"
+        android:textAllCaps="true"
+        android:background="@drawable/bg_outline_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_reset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_save"
+        app:layout_constraintTop_toTopOf="@+id/btn_save"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_save"
+        android:text="reset all"
+        android:textAllCaps="true"
+        android:background="@drawable/bg_outline_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

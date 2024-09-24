@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable-v24/bg_gray_outline_field.xml" value="0.161" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable-v24/bg_outline_button.xml" value="0.1035" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/drawable/bg_white_rounded.xml" value="0.1" />
         <entry key="..\:/ShoppingListTask/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/layout/dialog_fragment_shopping_item_creation.xml" value="0.22" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/layout/dialog_fragment_shopping_item_filtering.xml" value="0.20416666666666666" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/layout/dialog_fragment_shopping_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/layout/fragment_shopping_list.xml" value="0.18" />
+        <entry key="..\:/ShoppingListTask/app/src/main/res/layout/item_shopping_list.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

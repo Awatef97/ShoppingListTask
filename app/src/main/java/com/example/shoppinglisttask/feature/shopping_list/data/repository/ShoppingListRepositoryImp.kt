@@ -13,11 +13,6 @@ class ShoppingListRepositoryImp @Inject constructor(
     private val shoppingListLocalDataSource: ShoppingListLocalDataSource,
     private val ioDispatcher: CoroutineDispatcher
 ): ShoppingListRepository {
-    override suspend fun insertOrUpdateItem(shoppingListDto: ShoppingListDto) {
-        withContext(ioDispatcher){
-            shoppingListLocalDataSource.insertOrUpdateItem(shoppingListDto)
-        }
-    }
 
     override suspend fun deleteItem(shoppingListDto: ShoppingListDto) {
         withContext(ioDispatcher){
