@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.shoppinglisttask.core.extension.showMessage
 import com.example.shoppinglisttask.databinding.FragmentShoppingListBinding
-import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 import com.example.shoppinglisttask.feature.shopping_list.domain.param.GetShoppingItemParam
 import com.example.shoppinglisttask.feature.shopping_list.presentation.ui_state.UIState
 import com.example.shoppinglisttask.feature.shopping_list.presentation.view.adapter.ShoppingListAdapter

@@ -1,6 +1,6 @@
 package com.example.shoppinglisttask.feature.shopping_list.presentation.ui_state
 
-import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 
 
 sealed class UIState {

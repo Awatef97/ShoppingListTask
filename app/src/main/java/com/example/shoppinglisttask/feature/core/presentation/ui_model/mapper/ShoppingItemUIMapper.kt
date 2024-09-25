@@ -1,7 +1,7 @@
-package com.example.shoppinglisttask.feature.presentation.ui_mode.mapper
+package com.example.shoppinglisttask.feature.core.presentation.ui_model.mapper
 
 import com.example.shoppinglisttask.feature.core.domain.entity.ShoppingItemEntity
-import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 
 
 fun ShoppingItemEntity.toShoppingItemUIModel()=

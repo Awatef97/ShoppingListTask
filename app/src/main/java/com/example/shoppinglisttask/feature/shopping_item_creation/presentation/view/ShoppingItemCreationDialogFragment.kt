@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +12,7 @@ import com.example.shoppinglisttask.R
 import com.example.shoppinglisttask.core.extension.showMessage
 import com.example.shoppinglisttask.databinding.DialogFragmentShoppingItemCreationBinding
 import com.example.shoppinglisttask.feature.core.domain.entity.ShoppingItemEntity
-import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 import com.example.shoppinglisttask.feature.shopping_item_creation.presentation.ui_state.UIState
 import com.example.shoppinglisttask.feature.shopping_item_creation.presentation.viewmodel.ShoppingItemCreationViewModel
 import dagger.hilt.android.AndroidEntryPoint

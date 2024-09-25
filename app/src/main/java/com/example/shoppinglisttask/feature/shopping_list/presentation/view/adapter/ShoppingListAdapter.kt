@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglisttask.databinding.ItemShoppingListBinding
-import com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 import javax.inject.Inject
 
 class ShoppingListAdapter @Inject constructor()

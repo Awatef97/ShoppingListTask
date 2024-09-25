@@ -2,8 +2,7 @@ package com.example.shoppinglisttask.feature.shopping_list.presentation.viewmode
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.shoppinglisttask.feature.core.domain.entity.ShoppingItemEntity
-import com.example.shoppinglisttask.feature.presentation.ui_mode.mapper.toShoppingItemUIModel
+import com.example.shoppinglisttask.feature.core.presentation.ui_model.mapper.toShoppingItemUIModel
 import com.example.shoppinglisttask.feature.shopping_list.domain.interactor.ChangeBoughtItemUseCase
 import com.example.shoppinglisttask.feature.shopping_list.domain.interactor.DeleteShoppingItemUseCase
 import com.example.shoppinglisttask.feature.shopping_list.domain.interactor.GetShoppingItemsUseCase

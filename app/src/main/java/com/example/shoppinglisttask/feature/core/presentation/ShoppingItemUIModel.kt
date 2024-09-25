@@ -1,4 +1,4 @@
-package com.example.shoppinglisttask.feature.presentation.ui_mode
+package com.example.shoppinglisttask.feature.core.presentation
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

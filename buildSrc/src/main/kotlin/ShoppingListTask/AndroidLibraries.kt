@@ -42,3 +42,11 @@ object Room{
 
 }
 
+object Test{
+    const val testMockk = "io.mockk:mockk:1.13.2"
+    const val androidTestMockk = "io.mockk:mockk-android:1.13.2"
+    const val testCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    const val hiltTest = "com.google.dagger:hilt-android-testing:2.42"
+    const val testCore = "androidx.arch.core:core-testing:2.1.0"
+}
+

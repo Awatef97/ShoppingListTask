@@ -22,7 +22,7 @@
         android:label="ShoppingItemCreationDialogFragment">
         <argument
             android:name="shoppingItemUIModel"
-            app:argType="com.example.shoppinglisttask.feature.presentation.ui_mode.ShoppingItemUIModel"
+            app:argType="com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel"
             app:nullable="true"/>
     </dialog>
 
