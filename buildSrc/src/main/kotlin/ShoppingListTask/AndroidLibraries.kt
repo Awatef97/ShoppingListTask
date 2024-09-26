@@ -50,5 +50,6 @@ object Test{
     const val testCore = "androidx.arch.core:core-testing:2.1.0"
     const val testJetbrains = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0"
     const val testAndroidJetbrains = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.0"
+    const val testAndroidFragment ="androidx.fragment:fragment-testing:1.3.0-alpha08"
 }
 
