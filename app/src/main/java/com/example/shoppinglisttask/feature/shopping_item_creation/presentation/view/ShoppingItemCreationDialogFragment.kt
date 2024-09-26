@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -55,7 +56,7 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
          shoppingItem = args.shoppingItemUIModel
         if (shoppingItem != null){
             with(binding){
-                btnAddItem.text = "Update Item"
+                btnAddItem.text = getText(R.string.lbl_update_item)
                 etName.setText(shoppingItem?.name)
                 etDescription.setText(shoppingItem?.description)
                 etQuantity.setText(shoppingItem?.quantity.toString())
@@ -74,7 +75,7 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
             val quantity = binding.etQuantity.text.toString()
             if (name.isBlank() || name.isEmpty() ||description.isBlank() || description.isEmpty() ||
                 quantity.isBlank() || quantity.isEmpty() || quantity == "0" ){
-                "Please enter valid data".showMessage(context = context)
+                getString(R.string.msg_validation_error).showMessage(context = context)
             }else{
                 val shoppingItemEntity =  ShoppingItemEntity(
                     id = shoppingItem?.id ?: 0,
@@ -95,7 +96,11 @@ class ShoppingItemCreationDialogFragment: DialogFragment() {
                 when(uiState){
                     is UIState.ShowError -> {uiState.message.showMessage(context = context)}
                     is UIState.AddShoppingItem ->{
-                        "Item Added Successfully".showMessage(context = context)
+                        getString(R.string.msg_item_add_successfully).showMessage(context = context)
+                        val result = Bundle().apply {
+                            putBoolean("isNewItemAdded", true)
+                        }
+                        setFragmentResult("requestKey", result)
                         dismiss()
                     }
                 }

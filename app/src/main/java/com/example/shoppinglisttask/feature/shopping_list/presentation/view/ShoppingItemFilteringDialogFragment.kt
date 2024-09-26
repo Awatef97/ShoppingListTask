@@ -1,6 +1,5 @@
 package com.example.shoppinglisttask.feature.shopping_list.presentation.view
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -55,10 +54,10 @@ class ShoppingItemFilteringDialogFragment: DialogFragment() {
                 updateFilterStates(false)
             }
             btnAscending.setOnClickListener {
-                updateSortStates(true)
+                updateSortStates(false)
             }
             btnDescending.setOnClickListener {
-                updateSortStates(false)
+                updateSortStates(true)
             }
             btnSave.setOnClickListener {
                 val result = Bundle().apply {
@@ -94,11 +93,11 @@ class ShoppingItemFilteringDialogFragment: DialogFragment() {
     private fun updateSortStates(isAscendingOrder: Boolean) {
         isAscending = isAscendingOrder
         if (isAscendingOrder) {
-            binding.btnAscending.setBackgroundResource(R.drawable.bg_select_filter_field)
-            binding.btnDescending.setBackgroundResource(R.drawable.bg_gray_outline_field)
-        } else {
             binding.btnDescending.setBackgroundResource(R.drawable.bg_select_filter_field)
             binding.btnAscending.setBackgroundResource(R.drawable.bg_gray_outline_field)
+        } else {
+            binding.btnAscending.setBackgroundResource(R.drawable.bg_select_filter_field)
+            binding.btnDescending.setBackgroundResource(R.drawable.bg_gray_outline_field)
         }
     }
 

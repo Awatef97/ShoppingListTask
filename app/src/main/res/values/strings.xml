@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">ShoppingListTask</string>
+    <string name="lbl_name">enter name</string>
+    <string name="lbl_quantity">enter quantity</string>
+    <string name="lbl_description">enter description</string>
+    <string name="lbl_add_new_item">Add New Item</string>
+    <string name="lbl_add_item">Add Item</string>
+    <string name="lbl_cancel">Cancel</string>
+    <string name="lbl_filter">Filter</string>
+    <string name="lbl_bought">bought</string>
+    <string name="lbl_not_bought">not bought</string>
+    <string name="lbl_sort">Sort</string>
+    <string name="lbl_ascending">ascending</string>
+    <string name="lbl_descending">descending</string>
+    <string name="lbl_save">save</string>
+    <string name="lbl_reset_all">reset all</string>
+    <string name="lbl_search">Search</string>
+    <string name="lbl_update_item">Update Item</string>
+    <string name="msg_validation_error">Please enter valid data</string>
+    <string name="msg_item_add_successfully">Item Added Successfully</string>
+    <string name="msg_item_deleted_successfully">Item Deleted Successfully</string>
+    <string name="msg_item_updated_successfully">Item Updated Successfully</string>
 </resources>

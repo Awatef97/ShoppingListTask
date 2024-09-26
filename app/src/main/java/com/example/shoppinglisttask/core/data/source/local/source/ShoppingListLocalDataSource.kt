@@ -13,7 +13,7 @@ class ShoppingListLocalDataSource @Inject constructor(
     suspend fun deleteItem(itemId: Int)=
         shoppingListDatabase.shoppingDao().deleteItemById(itemId)
 
-     fun getAllItems()=
+     suspend fun getAllItems()=
         shoppingListDatabase.shoppingDao().getAllItems()
 
     suspend fun updateItem(itemId: Int, isBought: Boolean)=

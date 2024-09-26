@@ -11,6 +11,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.shoppinglisttask.R
 import com.example.shoppinglisttask.core.extension.showMessage
 import com.example.shoppinglisttask.databinding.FragmentShoppingListBinding
 import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
@@ -19,7 +20,6 @@ import com.example.shoppinglisttask.feature.shopping_list.presentation.ui_state.
 import com.example.shoppinglisttask.feature.shopping_list.presentation.view.adapter.ShoppingListAdapter
 import com.example.shoppinglisttask.feature.shopping_list.presentation.viewmodel.ShoppingListViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,7 +30,10 @@ class ShoppingListFragment: Fragment() {
 
     @Inject
     lateinit var shoppingListAdapter: ShoppingListAdapter
-    private var shoppingListUIModel: List<ShoppingItemUIModel> = emptyList()
+    private var shoppingListUIModel: MutableList<ShoppingItemUIModel> = mutableListOf()
+    private lateinit var updatedItem: ShoppingItemUIModel
+    private var isAscending = true
+    private var isBought = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,14 +46,22 @@ class ShoppingListFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getShoppingList()
+        getShoppingList(
+            GetShoppingItemParam(
+                isBought = false,
+                isAscending = true
+            )
+        )
         initListener()
         initObservation()
         setFragmentResultListener("requestKey") { key, bundle ->
-            val isBought = bundle.getBoolean("isBought")
-            val isAscending = bundle.getBoolean("isAscending")
-            if (bundle.getBoolean("isReset")){
-                getShoppingList()
+             isBought = bundle.getBoolean("isBought")
+             isAscending = bundle.getBoolean("isAscending")
+           if (bundle.getBoolean("isReset") ||bundle.getBoolean("isNewItemAdded")){
+                getShoppingList(   GetShoppingItemParam(
+                    isBought = false,
+                    isAscending = true
+                ))
             }else{
                 getShoppingList(getShoppingItemParam = GetShoppingItemParam(
                     isBought = isBought,
@@ -61,7 +72,7 @@ class ShoppingListFragment: Fragment() {
         }
     }
 
-    private fun getShoppingList(getShoppingItemParam: GetShoppingItemParam? = null) =
+    private fun getShoppingList(getShoppingItemParam: GetShoppingItemParam) =
         shoppingListViewModel.getShoppingList(getShoppingItemParam)
     private fun initListener(){
         initRecyclerView()
@@ -74,39 +85,45 @@ class ShoppingListFragment: Fragment() {
         }
         binding.etSearch.addTextChangedListener { text ->
             val query = text.toString()
-            filterItems(query)
+            searchItems(query)
         }
         shoppingListAdapter.onItemDeleteClicked = {
             shoppingListViewModel.deleteItem(itemId = it)
         }
         shoppingListAdapter.onItemEditClicked = {
+            updatedItem = it.copy(isBought = isBought)
             findNavController().navigate(ShoppingListFragmentDirections.actionShoppingListFragmentToShoppingItemCreationDialogFragment(it))
 
         }
         shoppingListAdapter.onItemBoughtClicked = {
-            shoppingListViewModel.updateItem(itemId = it.id, isBought = true)
+            updatedItem = it
+            shoppingListViewModel.updateItem(itemId = it.id, isBought = !it.isBought)
         }
     }
 
     private fun initObservation()= with(shoppingListViewModel){
-        lifecycleScope.launchWhenStarted {
-            eventFlow.collectLatest { uiState ->
-                when(uiState){
-                    is UIState.ShowError -> {uiState.message.showMessage(context = context)}
-                    is UIState.GetShoppingList ->{
-                        shoppingListUIModel = uiState.shoppingListUIModel
-                        shoppingListAdapter.submitList(uiState.shoppingListUIModel)
-                        "Item Added Successfully ${uiState.shoppingListUIModel.size}".showMessage(context = context)
+        lifecycleScope.launchWhenCreated {
+                eventFlow.collect { uiState ->
+                    when(uiState){
+                        is UIState.ShowError -> {uiState.message.showMessage(context = context)}
+                        is UIState.GetShoppingList ->{
+                            shoppingListUIModel = uiState.shoppingListUIModel as MutableList<ShoppingItemUIModel>
+                            shoppingListAdapter.submitList(uiState.shoppingListUIModel)
+                            getString(R.string.msg_item_add_successfully).showMessage(context = context)
 
-                    }
-                    is UIState.DeleteItemSuccessfully ->{
-                        "Item Deleted Successfully".showMessage(context = context)
-                    }
-                    is UIState.UpdatedItemSuccessfully ->{
+                        }
+                        is UIState.DeleteItemSuccessfully ->{
+                           getString(R.string.msg_item_deleted_successfully).showMessage(context = context)
+                            getShoppingList(GetShoppingItemParam(isBought = updatedItem.isBought,isAscending = isAscending))
+                        }
+                        is UIState.UpdatedItemSuccessfully ->{
+                            getString(R.string.msg_item_updated_successfully).showMessage(context = context)
+                            getShoppingList(GetShoppingItemParam(isBought = updatedItem.isBought,isAscending = isAscending))
 
+                        }
                     }
-                }
             }
+
         }
     }
 
@@ -115,12 +132,12 @@ class ShoppingListFragment: Fragment() {
             adapter = shoppingListAdapter
         }
     }
-    private fun filterItems(query: String) {
+    private fun searchItems(query: String) {
         val filteredItems = if (query.isEmpty()) {
             shoppingListUIModel
         } else {
             shoppingListUIModel.filter { item ->
-                item.name.contains(query, ignoreCase = true)
+                item.name.contains(query, ignoreCase = true) || item.description.contains(query, ignoreCase = true)
             }
         }
         shoppingListAdapter.submitList(filteredItems)

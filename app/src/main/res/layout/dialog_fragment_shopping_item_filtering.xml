@@ -11,7 +11,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Filter"
+        android:text="@string/lbl_filter"
         android:textColor="?attr/colorPrimary"
         android:textSize="20sp"
         android:layout_marginTop="24dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginBottom="50dp"
-        android:text="bought"
+        android:text="@string/lbl_bought"
         android:textAllCaps="false"
         android:background="@drawable/bg_gray_outline_field" />
 
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toEndOf="@id/btn_bought"
         app:layout_constraintTop_toTopOf="@+id/btn_bought"
         app:layout_constraintBottom_toBottomOf="@+id/btn_bought"
-        android:text="not bought"
+        android:text="@string/lbl_not_bought"
         android:textAllCaps="false"
         android:background="@drawable/bg_gray_outline_field" />
 
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btn_bought"
-        android:text="Sort"
+        android:text="@string/lbl_sort"
         android:textColor="?attr/colorPrimary"
         android:textSize="20sp"
         android:layout_marginTop="24dp"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginBottom="50dp"
-        android:text="ascending"
+        android:text="@string/lbl_ascending"
         android:textAllCaps="false"
         android:background="@drawable/bg_gray_outline_field" />
 
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toEndOf="@id/btn_ascending"
         app:layout_constraintTop_toTopOf="@+id/btn_ascending"
         app:layout_constraintBottom_toBottomOf="@+id/btn_ascending"
-        android:text="descending"
+        android:text="@string/lbl_descending"
         android:textAllCaps="false"
         android:background="@drawable/bg_gray_outline_field" />
 
@@ -97,7 +97,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginBottom="50dp"
-        android:text="save"
+        android:text="@string/lbl_save"
         android:textAllCaps="true"
         android:background="@drawable/bg_outline_button" />
 
@@ -109,7 +109,7 @@
         app:layout_constraintStart_toEndOf="@id/btn_save"
         app:layout_constraintTop_toTopOf="@+id/btn_save"
         app:layout_constraintBottom_toBottomOf="@+id/btn_save"
-        android:text="reset all"
+        android:text="@string/lbl_reset_all"
         android:textAllCaps="true"
         android:background="@drawable/bg_outline_button" />
 

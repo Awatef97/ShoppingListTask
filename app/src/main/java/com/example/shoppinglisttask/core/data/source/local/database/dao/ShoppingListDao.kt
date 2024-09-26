@@ -14,7 +14,7 @@ interface ShoppingListDao {
     suspend fun deleteItemById(itemId: Int)
 
     @Query("SELECT * FROM $SHOPPING_LIST_TABLE")
-     fun getAllItems(): Flow<List<ShoppingListDto>>
+     suspend fun getAllItems(): List<ShoppingListDto>
 
     @Query("UPDATE $SHOPPING_LIST_TABLE SET isBought = :isBought WHERE id = :itemId")
     suspend fun updateBoughtStatus(itemId: Int, isBought: Boolean)

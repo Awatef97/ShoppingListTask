@@ -20,12 +20,11 @@ class ShoppingListRepositoryImp @Inject constructor(
         }
     }
 
-    override fun getAllItems(): Flow<List<ShoppingListDto>> {
-        return shoppingListLocalDataSource.getAllItems()
-            .flowOn(ioDispatcher)
-
+    override suspend fun getAllItems(): List<ShoppingListDto> {
+        return withContext(ioDispatcher) {
+            shoppingListLocalDataSource.getAllItems()
+        }
     }
-
     override suspend fun updateItem(itemId: Int, isBought: Boolean) {
         withContext(ioDispatcher){
             shoppingListLocalDataSource.updateItem(itemId,isBought)

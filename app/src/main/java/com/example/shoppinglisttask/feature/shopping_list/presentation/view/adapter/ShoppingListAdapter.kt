@@ -1,11 +1,12 @@
 package com.example.shoppinglisttask.feature.shopping_list.presentation.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shoppinglisttask.R
+import com.example.shoppinglisttask.core.extension.formatMillisecondsToDate
 import com.example.shoppinglisttask.databinding.ItemShoppingListBinding
 import com.example.shoppinglisttask.feature.core.presentation.ShoppingItemUIModel
 import javax.inject.Inject
@@ -19,16 +20,20 @@ class ShoppingListAdapter @Inject constructor()
         inner class ShoppingListViewHolder(private val binding: ItemShoppingListBinding) :
             RecyclerView.ViewHolder(binding.root){
                 fun bind(shoppingItemUIModel: ShoppingItemUIModel){
+                    if (shoppingItemUIModel.isBought)
+                        binding.btnBought.setBackgroundResource(R.drawable.ic_bought)
+                    else
+                        binding.btnBought.setBackgroundResource(R.drawable.ic_unbought)
                     with(binding){
-                        if (shoppingItemUIModel.isBought)
-                            btnBought.visibility = View.GONE
                         tvName.text = shoppingItemUIModel.name
                         tvDescription.text = shoppingItemUIModel.description
-                        tvDate.text = shoppingItemUIModel.date.toString()
+                        tvDate.text = shoppingItemUIModel.date.formatMillisecondsToDate()
                         tvQuantity.text = shoppingItemUIModel.quantity.toString()
                         btnDelete.setOnClickListener {  onItemDeleteClicked(shoppingItemUIModel.id)}
                         btnEdit.setOnClickListener {  onItemEditClicked(shoppingItemUIModel)}
-                        btnBought.setOnClickListener { onItemBoughtClicked(shoppingItemUIModel) }
+                        btnBought.setOnClickListener {
+                            onItemBoughtClicked(shoppingItemUIModel)
+                        }
                     }
                 }
 

@@ -7,7 +7,7 @@ interface ShoppingListRepository {
 
     suspend fun deleteItem(itemId: Int)
 
-    fun getAllItems(): Flow<List<ShoppingListDto>>
+    suspend fun getAllItems(): List<ShoppingListDto>
 
     suspend fun updateItem(itemId: Int, isBought: Boolean)
 
