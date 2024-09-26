@@ -18,8 +18,8 @@ android {
         versionCode = ConfigData.versionCode
         versionName = ConfigData.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner = "com.example.shoppinglisttask.core.data.source.local.CustomHiltTestRunner"
+       // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.shoppinglisttask.HiltTestRunner"
     }
 
     buildTypes {
@@ -54,6 +54,7 @@ fun com.android.build.gradle.internal.dsl.BaseAppModuleExtension.javaVersions() 
 dependencies {
 
     implementation("androidx.test.ext:junit-ktx:1.2.1")
+    implementation("androidx.navigation:navigation-testing:2.8.1")
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.5")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
@@ -99,4 +100,6 @@ dependencies {
     androidTestImplementation(Test.testCore)
     testImplementation(Test.testJetbrains)
     testImplementation (Test.testAndroidJetbrains)
+    debugImplementation (Test.testAndroidFragment)
+
 }

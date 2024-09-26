@@ -1,13 +1,17 @@
-package com.example.shoppinglisttask.core.data.source.local
+package com.example.shoppinglisttask
 
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
 import dagger.hilt.android.testing.HiltTestApplication
 
-class CustomHiltTestRunner : AndroidJUnitRunner() {
+class HiltTestRunner : AndroidJUnitRunner() {
 
-    override fun newApplication(cl: ClassLoader?, className: String?, context: Context?): Application {
+    override fun newApplication(
+        cl: ClassLoader?,
+        className: String?,
+        context: Context?
+    ): Application {
         return super.newApplication(cl, HiltTestApplication::class.java.name, context)
     }
 }

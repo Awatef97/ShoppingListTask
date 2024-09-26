@@ -24,14 +24,14 @@
             android:hint="@string/lbl_search"
             android:padding="8dp"
             android:textColorHint="@android:color/darker_gray"
-            app:layout_constraintEnd_toStartOf="@id/icon_filter"
+            app:layout_constraintEnd_toStartOf="@id/btn_filter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/bg_gray_outline_field"
             android:textColor="#FFFFFF"/>
 
         <ImageView
-            android:id="@+id/icon_filter"
+            android:id="@+id/btn_filter"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

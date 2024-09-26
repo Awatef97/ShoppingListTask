@@ -80,7 +80,7 @@ class ShoppingListFragment: Fragment() {
         binding.fab.setOnClickListener {
             findNavController().navigate(ShoppingListFragmentDirections.actionShoppingListFragmentToShoppingItemCreationDialogFragment(null))
         }
-        binding.iconFilter.setOnClickListener {
+        binding.btnFilter.setOnClickListener {
             findNavController().navigate(ShoppingListFragmentDirections.actionShoppingListFragmentToShoppingItemFilteringDialogFragment())
         }
         binding.etSearch.addTextChangedListener { text ->

@@ -1,9 +1,8 @@
 package com.example.shoppinglisttask.feature.shopping_list.domain.interactor
 
 import com.example.shoppinglisttask.core.data.source.local.database.dto.ShoppingListDto
-import com.example.shoppinglisttask.feature.shopping_list.data.FakeShoppingListRepositoryImp
+import com.example.shoppinglisttask.feature.shopping_list.data.repository.FakeShoppingListRepositoryImp
 import junit.framework.TestCase.assertEquals
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test

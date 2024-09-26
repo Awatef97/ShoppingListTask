@@ -1,9 +1,7 @@
-package com.example.shoppinglisttask.feature.shopping_list.data
+package com.example.shoppinglisttask.feature.shopping_list.data.repository
 
 import com.example.shoppinglisttask.core.data.source.local.database.dto.ShoppingListDto
 import com.example.shoppinglisttask.feature.shopping_list.domain.repository.ShoppingListRepository
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 
 class FakeShoppingListRepositoryImp: ShoppingListRepository {
