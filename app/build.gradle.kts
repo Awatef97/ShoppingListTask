@@ -97,6 +97,6 @@ dependencies {
     testImplementation(Test.hiltTest)
     testImplementation(Test.testCore)
     androidTestImplementation(Test.testCore)
-    testImplementation( "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0" )// Use the latest version
-    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.0") // Ensure you have this for testing
+    testImplementation(Test.testJetbrains)
+    testImplementation (Test.testAndroidJetbrains)
 }

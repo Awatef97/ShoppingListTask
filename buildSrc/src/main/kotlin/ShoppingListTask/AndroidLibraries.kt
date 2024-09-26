@@ -48,5 +48,7 @@ object Test{
     const val testCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     const val hiltTest = "com.google.dagger:hilt-android-testing:2.42"
     const val testCore = "androidx.arch.core:core-testing:2.1.0"
+    const val testJetbrains = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0"
+    const val testAndroidJetbrains = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.0"
 }
 
