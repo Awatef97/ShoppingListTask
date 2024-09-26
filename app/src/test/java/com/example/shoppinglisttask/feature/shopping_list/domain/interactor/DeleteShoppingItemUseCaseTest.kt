@@ -40,7 +40,7 @@ class DeleteShoppingItemUseCaseTest {
         deleteShoppingItemUseCase(shoppingListDto.id)
 
         // Then
-        val items = fakeShoppingListRepositoryImp.getAllItems().first()
+        val items = fakeShoppingListRepositoryImp.getAllItems()
 
         assertEquals(items.size, 1)
     }

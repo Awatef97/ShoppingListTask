@@ -27,8 +27,8 @@ class GetShoppingItemsUseCaseTest {
         ('a'..'z').forEachIndexed { index, c ->
             shoppingListDto.add(
                 ShoppingListDto(
-                    id = 1,
-                    name = "Test",
+                    id = index,
+                    name = c.toString(),
                     description = "shopping item description",
                     date = 21232324244,
                     isBought = true,
@@ -49,9 +49,10 @@ class GetShoppingItemsUseCaseTest {
         getShoppingItemsUseCase(getShoppingItemParam)
 
         // Then
-        val items = fakeShoppingListRepositoryImp.getAllItems().first()
+        val items = fakeShoppingListRepositoryImp.getAllItems()
 
-        TestCase.assertEquals(items.size,1)
-        TestCase.assertEquals(items[0].isBought, false)
+        TestCase.assertEquals(items.size,26)
+        TestCase.assertEquals(items[0].name, "a")
+        TestCase.assertEquals(items.last().name, "z")
     }
 }

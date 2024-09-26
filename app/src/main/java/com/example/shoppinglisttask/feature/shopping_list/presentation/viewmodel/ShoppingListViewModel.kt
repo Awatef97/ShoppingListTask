@@ -1,6 +1,5 @@
 package com.example.shoppinglisttask.feature.shopping_list.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.shoppinglisttask.feature.core.presentation.ui_model.mapper.toShoppingItemUIModel
@@ -11,9 +10,6 @@ import com.example.shoppinglisttask.feature.shopping_list.domain.param.GetShoppi
 import com.example.shoppinglisttask.feature.shopping_list.presentation.ui_state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.replay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

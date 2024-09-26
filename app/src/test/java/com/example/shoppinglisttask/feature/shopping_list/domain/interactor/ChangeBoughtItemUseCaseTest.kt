@@ -39,7 +39,7 @@ class ChangeBoughtItemUseCaseTest {
         changeBoughtItemUseCase(itemId = shoppingListDto.id,isBought = false)
 
         // Then
-        val items = fakeShoppingListRepositoryImp.getAllItems().first()
+        val items = fakeShoppingListRepositoryImp.getAllItems()
 
         assertEquals(items.size,1)
         assertEquals(items[0].isBought, false)

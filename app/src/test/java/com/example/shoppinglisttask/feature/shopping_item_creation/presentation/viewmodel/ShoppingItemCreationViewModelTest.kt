@@ -86,6 +86,5 @@ class ShoppingItemCreationViewModelTest {
             assertEquals((state as UIState.ShowError).message, errorMessage)
         }
 
-        testDispatcher.scheduler.advanceUntilIdle()
     }
 }

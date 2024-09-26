@@ -12,8 +12,8 @@ class FakeShoppingListRepositoryImp: ShoppingListRepository {
         shoppingItemsListDto.remove(shoppingItemsListDto.find { it.id == itemId })
     }
 
-    override fun getAllItems(): Flow<List<ShoppingListDto>> {
-        return flow {emit(shoppingItemsListDto)}
+    override suspend fun getAllItems(): List<ShoppingListDto> {
+        return shoppingItemsListDto
     }
 
     override suspend fun updateItem(itemId: Int, isBought: Boolean) {

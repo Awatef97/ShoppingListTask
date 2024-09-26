@@ -9,7 +9,6 @@ import com.example.shoppinglisttask.core.data.source.local.database.dto.Shopping
 import dagger.hilt.android.testing.HiltAndroidTest
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -56,7 +55,7 @@ fun initDb() {
         shoppingListDao.insertOrUpdateItem(item = shoppingListDto)
 
         // Then
-        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems().first()
+        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems()
 
         assertEquals(1, shoppingList.size)
         assertEquals(shoppingListDto, shoppingList[0])
@@ -78,7 +77,7 @@ fun initDb() {
         shoppingListDao.deleteItemById(itemId = 1)
 
         // Then
-        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems().first()
+        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems()
 
         assertEquals(0, shoppingList.size)
         assertTrue(shoppingList.isEmpty())
@@ -110,7 +109,7 @@ fun initDb() {
         shoppingListDao.insertOrUpdateItem(item = shoppingItemDto2)
 
         // Then
-        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems().first()
+        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems()
 
         assertEquals(2, shoppingList.size)
     }
@@ -132,7 +131,7 @@ fun initDb() {
         shoppingListDao.insertOrUpdateItem(item = shoppingItemDto1)
 
         // Then
-        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems().first()
+        val shoppingList: List<ShoppingListDto> = shoppingListDao.getAllItems()
 
         assertEquals(true, shoppingList[0].isBought)
     }
